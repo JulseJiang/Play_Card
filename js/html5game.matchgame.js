@@ -1,12 +1,23 @@
 $(function() {
+	$card_board = $('#card');//卡片面板
+	card_mode = $card_board.html();//面板上的第一个卡片作为模型
+	$rest_time=$('#rest_time');//剩余次数span
+//	console.log('$card_mode:'+$card_mode);
+	primary();
+	
+})
+function refresh(){ 
+	var rest_time = $rest_time.text();
+	$card_board.empty();
 	var temper = [];
-	var record = [];
+	var record = []; 
 	//生成牌--?生成的牌有重复的情况
 //	$cards_create = createCards(3 * 4);
 	var $card = $('.card');
-	displayCards(3, 4,$card); //发牌
+	displayCards(row, col); //发牌
 	//	卡片点击事件--点击卡片旋转，牌面消失，牌底出现（牌面为表层牌，牌底为展示牌值的牌）
 	$('.card').bind('click', function() {
+		$rest_time.text(--rest_time);
 		temper.push($(this));
 		console.log("点击face");
 		var $taget0 = $(this).find('div:eq(0)').removeClass('rotate'); //正面
@@ -28,13 +39,6 @@ $(function() {
 			temper = [];
 		}
 	});
-
-})
-function refresh(){
-	var $div_card = $('#card');
-	var $card = $div_card.find('div:eq(0)');
-	$div_card.empty();
-	displayCards(3, 4,$card); //发牌
 }
 //判断是否相等
 function juge(tem,record){
@@ -70,41 +74,42 @@ function createCards(number) {
 	var values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 	var types = ['A', 'B', 'C', 'D'];
 	var json_values = [];
-	console.log("初始化json数组：" + json_values);
+//	console.log("初始化json数组：" + json_values);
 	//	var card_strs = [];
 	for(var i = 0; i < number / 2; i++) {
 		var value = parseInt(Math.random() * values.length);
 		var type = parseInt(Math.random() * types.length);
 		for(var j = 0; j < 2; j++) { //生成成对的json
-			console.log('插入前的json');
+//			console.log('插入前的json');
 			json_values.push({ 
 				"value": value,
 				"type": type,
 				"str": "card" + types[type] + values[value]
 			});
-			console.log("打印json");
-			console.log(json_values);
+//			console.log("打印json");
+//			console.log(json_values);
 		}
 		var result = values.splice(value - 1, 1); //删除已经使用过的数字
-		console.log("删除的元素" + result);
-		console.log( '删除之后的长度：' + values.length);
+//		console.log('vlues'+values);
+//		console.log("删除的元素" + result);
+//		console.log( '删除之后的长度：' + values.length);
 		//		card_strs.push("card"+types[type]+values[value]);
 	}
 
 	//	console.log(card_strs); 
 	//	console.log(json_values[2].value+"" +json_values[2].type);
-	console.log("json_values_length:" + json_values.length);
+//	console.log("json_values_length:" + json_values.length);
 	var result =json_values.sort(function(a,b){
 			return Math.random()>0.5?1:-1;
 		});//乱序
 	return json_values;
 }
 //	发牌--发牌效果:num_x:行数，num_y：列数
-function displayCards(num_x, num_y, $card) {
+function displayCards(num_x, num_y) {
 	//生成牌
 	var cards = createCards(num_x * num_y);
 	var position_y = 10;
-	var $div_card = $('#card');
+//	var $card_board = $('#card');
 //	var $card = $('.card');
 	var index = 0;
 
@@ -118,7 +123,7 @@ function displayCards(num_x, num_y, $card) {
 			var card_index = cards[index];
 			bg_position_x = -card_index.value * 80;
 			bg_position_y = -card_index.type * 120;
-			var $card_clone = $card.clone();
+			var $card_clone = $(card_mode).clone();
 			var $test = $card_clone.find('div:eq(0)'); //得到对应的牌
 			$test.css({
 				'background-position-x': bg_position_x.toString() + 'px',
@@ -134,10 +139,28 @@ function displayCards(num_x, num_y, $card) {
 				'top': position_y + 'px'
 			});
 			position_x += 90;
-			$div_card.append($card_clone); //克隆
+			$card_board.append($card_clone); //克隆
 			index++;
 		}
 		position_y += 130;
 	}
-	$card.remove();
+//	$card.remove();z
+}
+function primary(){
+	$rest_time.text("10");
+	row = 2;
+	col = 3;
+	refresh();
+}
+function middle(){
+	$rest_time.text("20");
+	row = 3;
+	col = 4;
+	refresh();
+}
+function master(){
+	$rest_time.text("15");
+	row = 3;
+	col = 4;
+	refresh();
 }
