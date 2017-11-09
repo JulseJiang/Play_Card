@@ -1,0 +1,107 @@
+body{
+	background-image: url(../imges/bg.jpg);
+	/*display: table-cell;
+	vertical-align: middle;*/
+}
+/*游戏面板*/
+#game{
+	width: 502px;
+	height: 462px;
+	margin: auto;
+	background-image: url(../imges/table.jpg);
+	border: #666 solid 1px;
+	border-radius: 10px;
+	position: relative;
+	top:100px;
+	/*display: table-cell;
+	vertical-align: middle;*/
+	/*top:50%;*/
+/*	display: inline-block;*/
+}
+#card{
+	width: 380px;
+	height: 400px;
+	position: relative;
+	margin: auto;
+	top:30px;
+}
+.card{
+	width: 80px;
+	height: 120px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	
+}
+/*牌面和牌低容器*/
+.face{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	position: absolute;
+	/*transition: all 1s;
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);*/
+}
+
+.face_hidden{
+	/*transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);*/
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+.rotate{
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+}
+.rotate_back{
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+}
+.face:hover{
+	
+	/*翻牌后不可见*/
+	/*backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	transition: all 1s;*/
+	box-shadow: #666666 5px 5px 5px;
+}
+/*牌面*/
+.front{
+	background-color: #999;
+	background: url(../imges/deck.png);
+	width: 80px;
+	height: 120px;
+	background-position: 0 -480px;
+	transition: all 1s;
+	/*backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;*/
+	/*transition: all 1s;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);*/
+}
+/*牌底*/
+.back{
+	background-color: #efefef;
+	width: 80px;
+	height: 120px;
+	background: url(../imges/deck.png) no-repeat;
+	/*background-position: 0 -480px;*/
+	/*background-position: -80px -120px;*/
+	transition: all 1s;
+	/*backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;*/
+	/*transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);*/
+}
+.button{
+	background: url(../imges/table.jpg);
+	width: 80px;
+	height: 50px;
+	color: white;
+	font-size: 20px;
+	border-radius: 10px;
+	float: right;
+}
