@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>纸牌游戏</title>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/html5game.matchgame.js"></script>
 		<link rel="stylesheet" href="styles/matchgame.css" />
 	</head>
-	<body >
-		<div>
-				<div >
-			<label>剩余次数：<span id="rest_time">15</span></label>
-		</div>
-		<div><label>纪录：<span id="best_record">6</span></label></div>
-		<section id="game">
-			<div id="card">
-				<div class="card ">
-					<div class="face back rotate"></div><!--牌底：显示牌数值的-->
-					<div class="face front"></div><!--牌面：隐藏牌数值-->
+
+	<body>
+		<div class="div_center">
+			<div class="div_parent">
+			<div class="div_column1 ">
+					<label>剩余次数：<span id="rest_time">15</span></label>
+			</div>
+			<div class="div_column2">
+				<section id="game">
+					<div id="card">
+						<div class="card ">
+							<div class="face back rotate"></div>
+							<!--牌底：显示牌数值的-->
+							<div class="face front"></div>
+							<!--牌面：隐藏牌数值-->
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="div_column3">
+				<div class="div_button_group right">
+					<input class="button" type="button" value="重玩" onclick="refresh()">
+					<!--在设定模式下重玩-->
+					<input class="button" type="button" value="初级" onclick="primary()">
+					<!--2*3 10次-->
+					<input class="button" type="button" value="中级" onclick="middle()">
+					<!--3*4 20次-->
+					<input class="button" type="button" value="高级" onclick="master()">
+					<!--3*4 15次-->
 				</div>
 			</div>
-			
-		</section>
+		</div>
 		</div>
 	
-		<div id="mask"></div>
-		<div class="div_button_group">
-			<input class="button" type="button" value="重玩" onclick="refresh()"> <!--在设定模式下重玩-->
-			<input class="button" type="button" value="初级" onclick="primary()"> <!--2*3 10次-->
-			<input class="button" type="button" value="中级" onclick="middle()"> <!--3*4 20次-->
-			<input class="button" type="button" value="高级" onclick="master()"> <!--3*4 15次-->
-		</div>
 	</body>
+
 </html>

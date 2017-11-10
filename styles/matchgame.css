@@ -1,22 +1,38 @@
 body{
 	background-image: url(../imges/bg.jpg);
-	display: flex;
+	/*display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: center;*/
 	/*display: table-cell;
 	vertical-align: middle;*/
+}
+.div_parent{
+	height: 100%;
+	margin:auto;
+	display: -webkit-box;
+	justify-content: center;
+	/*-webkit-box-orient: horizontal;*/
+}
+.div_column1{
+	webkit-box-flex: 1;
+}
+.div_column2{
+	webkit-box-flex: 2;
+	margin-top: 15px;
+	margin-bottom:15px ;
+}
+.div_column3{
+	webkit-box-flex: 1;
 }
 /*游戏面板*/
 #game{
 	width: 502px;
 	height: 462px;
-	margin: auto;
+	margin-top:30%;
 	background-image: url(../imges/table.jpg);
 	border: #666 solid 1px;
 	border-radius: 10px;
-	top:100px;
-	z-index: 0; 
 	/*display: table-cell;
 	vertical-align: middle;*/
 	/*top:50%;*/
@@ -99,30 +115,20 @@ body{
 	/*transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);*/
 }
-.div_button_group{
-	display: inline;
-}
 .button{
 	background: url(../imges/table.jpg);
-	width: 80px;
-	height: 50px;
-	color: white;
-	font-size: 30px;
-	border-radius: 10px;
-}
-.button_bg{
-	background: url(../imges/table.jpg);
-	width: 160px;
-	height: 50px;
+	padding: 3px;
 	color: white;
 	font-size: 30px;
 	border-radius: 10px;
 }
 label{
-	font-size: 35px;
+	font-size: 30px;
 	color: white;
 	font-style:normal;
 	font-family: "微软雅黑";
+	display: block;
+	width: 200px;
 }
 #mask {  
 	margin: auto;
@@ -133,3 +139,27 @@ label{
 	height: 462px; 
 	align-self: center;
     }     
+@media only screen and (max-width: 1000px) {
+    .div_parent {
+        width:100%;
+        -webkit-box-orient: vertical;
+    }
+    #game{
+    	width: 100%;
+		margin-top: 0%;
+    }
+    
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.div_center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
