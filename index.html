@@ -8,7 +8,8 @@
 		<link rel="stylesheet" href="styles/matchgame.css" />
 	</head>
 	<body >
-		<div >
+		<div>
+				<div >
 			<label>剩余次数：<span id="rest_time">15</span></label>
 		</div>
 		<div><label>纪录：<span id="best_record">6</span></label></div>
@@ -19,16 +20,16 @@
 					<div class="face front"></div><!--牌面：隐藏牌数值-->
 				</div>
 			</div>
+			
 		</section>
+		</div>
+	
+		<div id="mask"></div>
 		<div class="div_button_group">
 			<input class="button" type="button" value="重玩" onclick="refresh()"> <!--在设定模式下重玩-->
 			<input class="button" type="button" value="初级" onclick="primary()"> <!--2*3 10次-->
 			<input class="button" type="button" value="中级" onclick="middle()"> <!--3*4 20次-->
 			<input class="button" type="button" value="高级" onclick="master()"> <!--3*4 15次-->
-		</div>
-		<div class="div_button_group">
-			<input class="button_bg" title="牌相同则消失" type="button" value="单人模式" onclick="refresh()">
-			<input class="button_bg" title="牌数大则获胜" type="button" value="双人模式" onclick="refresh()">
 		</div>
 	</body>
 </html>

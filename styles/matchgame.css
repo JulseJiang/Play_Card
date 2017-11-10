@@ -1,6 +1,9 @@
 body{
 	background-image: url(../imges/bg.jpg);
-	display: inline;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	/*display: table-cell;
 	vertical-align: middle;*/
 }
@@ -12,8 +15,8 @@ body{
 	background-image: url(../imges/table.jpg);
 	border: #666 solid 1px;
 	border-radius: 10px;
-	position: relative;
 	top:100px;
+	z-index: 0; 
 	/*display: table-cell;
 	vertical-align: middle;*/
 	/*top:50%;*/
@@ -96,7 +99,7 @@ body{
 	/*transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);*/
 }
-div_button_group{
+.div_button_group{
 	display: inline;
 }
 .button{
@@ -121,3 +124,12 @@ label{
 	font-style:normal;
 	font-family: "微软雅黑";
 }
+#mask {  
+	margin: auto;
+    filter: alpha(opacity=60); 
+    background: url(../imges/popup_bg.jpg);     
+    opacity:0.5; -moz-opacity:0.5;  
+    width: 502px;
+	height: 462px; 
+	align-self: center;
+    }     

@@ -160,13 +160,13 @@ function primary(){
 	refresh();
 }
 function middle(){
-	current_mode = 20
+	current_mode = 20;
 	row = 3;
 	col = 4;
 	refresh();
 }
 function master(){
-	current_mode = 15
+	current_mode = 15;
 	row = 3;
 	col = 4;
 	refresh();
