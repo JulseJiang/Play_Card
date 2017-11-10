@@ -12,8 +12,8 @@ function refresh(){
 	$rest_time.text(current_mode);
 	var rest_time = current_mode;
 	$card_board.empty();
-	var temper = [];
-	var record = []; 
+	var temper = [];//记录节点
+	var record = []; //记录点击次数
 	//生成牌--?生成的牌有重复的情况
 //	$cards_create = createCards(3 * 4);
 //	var $card = $('.card');
@@ -46,7 +46,7 @@ function refresh(){
 //判断是否相等
 function juge(tem,record){
 //	var tem = temper;//由于1500ms的延时，防止temper使用前被清空
-			if(record[0] == record[1]) { //两次记录相同   
+			if(record[0] == record[1]) { //两次记录相同   ：data-value
 					console.log('完全相同');
 					setTimeout(function() {
 					$(tem[0]).remove();
@@ -127,21 +127,21 @@ function displayCards(num_x, num_y) {
 			bg_position_x = -card_index.value * 80;
 			bg_position_y = -card_index.type * 120;
 			var $card_clone = $(card_mode).clone();
-//			var $test = $card_clone.find('div:eq(0)'); //得到对应的牌
-//			$test.css({
-//				'background-position-x': bg_position_x.toString() + 'px',
-//				'background-position-y': bg_position_y.toString() + 'px'
-//			});
-			//			$test.addClass(card_index.str);
-//			$test.attr({
-//				'data-value': card_index.str
-//			});
+			var $test = $card_clone.find('div:eq(0)'); //得到对应的牌
+			$test.css({
+				'background-position-x': bg_position_x.toString() + 'px',
+				'background-position-y': bg_position_y.toString() + 'px'
+			});
+//						$test.addClass(card_index.str);
+			$test.attr({
+				'data-value': card_index.str
+			});
 			//			console.log("test:"+$test.code);
 //			$card_clone.css({
 //				'left': position_x + 'px',
 //				'top': position_y + 'px'
 //			});
-				$card_clone.animate({
+			$card_clone.animate({
 				left:position_x + 'px',
 				top:position_y + 'px'
 				},500);
