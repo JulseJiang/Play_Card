@@ -14,9 +14,9 @@ body{
 	/*display: table-cell;
 	vertical-align: middle;*/
 }
-div{
+/*div{
 	border: red solid 2px;
-}
+}*/
 .green{
 	background-color: yellowgreen;
 }
@@ -31,7 +31,7 @@ div{
 	webkit-box-flex: 1;
 }
 .div_column2{
-	webkit-box-flex: 2;
+	webkit-box-flex: 5;
 	/*margin-top: 15px;
 	margin-bottom:15px ;*/
 }
@@ -41,7 +41,7 @@ div{
 /*游戏面板*/
 #game{
 	width: 502px;
-	height: 462px;
+	height: 420px;
 	margin-top:30%;
 	background-image: url(../imges/table.jpg);
 	border: #666 solid 1px;
@@ -54,7 +54,7 @@ div{
 #card{
 	/*width: 380px;
 	height: 400px;*/
-	position: relative;
+	position: absolute;
 	margin: auto;
 	/*top:30px;*/
 }
@@ -148,20 +148,23 @@ label{
     background: url(../imges/popup_bg.jpg);     
     opacity:0.5; -moz-opacity:0.5;  
     width: 502px;
-	height: 462px; 
+	height: 462px;
 	align-self: center;
     }     
 @media only screen and (max-width: 1000px) {
     .div_parent {
         width:100%;
+        height: 100%;
         -webkit-box-orient: vertical;
     }
     #game{
     	width: 100%;
+    	
 		margin: 0%;
-		transform: scale(0.8,0.8);
     }
-    
+    #card{
+    	left: -12px;
+    }
 }
 .left{
 	float: left;
