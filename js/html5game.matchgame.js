@@ -2,18 +2,21 @@ $(function() {
 	$card_board = $('#card');//卡片面板
 	card_mode = $card_board.html();//面板上的第一个卡片作为模型
 	$rest_time=$('#rest_time');//剩余次数span
+	current_mode = 20;//当前模式下的次数
+	success_time=0;//成功次数
 //	console.log('$card_mode:'+$card_mode);
 	primary();
 	
 })
 function refresh(){ 
-	var rest_time = $rest_time.text();
+	$rest_time.text(current_mode);
+	var rest_time = current_mode;
 	$card_board.empty();
 	var temper = [];
 	var record = []; 
 	//生成牌--?生成的牌有重复的情况
 //	$cards_create = createCards(3 * 4);
-	var $card = $('.card');
+//	var $card = $('.card');
 	displayCards(row, col); //发牌
 	//	卡片点击事件--点击卡片旋转，牌面消失，牌底出现（牌面为表层牌，牌底为展示牌值的牌）
 	$('.card').bind('click', function() {
@@ -124,20 +127,24 @@ function displayCards(num_x, num_y) {
 			bg_position_x = -card_index.value * 80;
 			bg_position_y = -card_index.type * 120;
 			var $card_clone = $(card_mode).clone();
-			var $test = $card_clone.find('div:eq(0)'); //得到对应的牌
-			$test.css({
-				'background-position-x': bg_position_x.toString() + 'px',
-				'background-position-y': bg_position_y.toString() + 'px'
-			});
+//			var $test = $card_clone.find('div:eq(0)'); //得到对应的牌
+//			$test.css({
+//				'background-position-x': bg_position_x.toString() + 'px',
+//				'background-position-y': bg_position_y.toString() + 'px'
+//			});
 			//			$test.addClass(card_index.str);
-			$test.attr({
-				'data-value': card_index.str
-			});
+//			$test.attr({
+//				'data-value': card_index.str
+//			});
 			//			console.log("test:"+$test.code);
-			$card_clone.css({
-				'left': position_x + 'px',
-				'top': position_y + 'px'
-			});
+//			$card_clone.css({
+//				'left': position_x + 'px',
+//				'top': position_y + 'px'
+//			});
+				$card_clone.animate({
+				left:position_x + 'px',
+				top:position_y + 'px'
+				},500);
 			position_x += 90;
 			$card_board.append($card_clone); //克隆
 			index++;
@@ -147,19 +154,19 @@ function displayCards(num_x, num_y) {
 //	$card.remove();z
 }
 function primary(){
-	$rest_time.text("10");
+	current_mode = 10;
 	row = 2;
 	col = 3;
 	refresh();
 }
 function middle(){
-	$rest_time.text("20");
+	current_mode = 20
 	row = 3;
 	col = 4;
 	refresh();
 }
 function master(){
-	$rest_time.text("15");
+	current_mode = 15
 	row = 3;
 	col = 4;
 	refresh();
