@@ -147,7 +147,7 @@ label{
     filter: alpha(opacity=60); 
     background: url(../imges/popup_bg.jpg);     
     opacity:0.5; -moz-opacity:0.5;  
-    width: 502px;
+    width: 462px;
 	height: 462px;
 	align-self: center;
     }     
