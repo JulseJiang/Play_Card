@@ -25,7 +25,7 @@ function refresh(){
 			refresh();
 			return;
 		}
-		if(--rest_time<11){
+		if(--rest_time<10){
 			$rest_time.text("0"+rest_time);
 		}else{
 			$rest_time.text(--rest_time);
