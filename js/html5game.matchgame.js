@@ -20,7 +20,16 @@ function refresh(){
 	displayCards(row, col); //发牌
 	//	卡片点击事件--点击卡片旋转，牌面消失，牌底出现（牌面为表层牌，牌底为展示牌值的牌）
 	$('.card').bind('click', function() {
-		$rest_time.text(--rest_time);
+		if(rest_time==0){
+			alert('挑战失败');
+			refresh();
+			return;
+		}
+		if(--rest_time<11){
+			$rest_time.text("0"+rest_time);
+		}else{
+			$rest_time.text(--rest_time);
+		}
 		temper.push($(this));
 		console.log("点击face");
 		var $taget0 = $(this).find('div:eq(0)').removeClass('rotate'); //正面
