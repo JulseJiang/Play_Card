@@ -34,7 +34,8 @@ function refresh(){
 		console.log("点击face");
 		var $taget0 = $(this).find('div:eq(0)').removeClass('rotate'); //正面
 		var $taget1 = $(this).find('div:eq(1)').addClass('face_hidden rotate'); //背面
-		record.push($taget0.attr('data-value'));
+		var val = $taget0.attr('data-value');
+		record.push(val);
 		if(record.length == 2) {
 			if(!(temper[0].is(temper[1]))){
 				//如果说要判断是否同一对象，当然是用 === 来判断，
@@ -55,7 +56,7 @@ function refresh(){
 //判断是否相等
 function juge(tem,record){
 //	var tem = temper;//由于1500ms的延时，防止temper使用前被清空
-			if(record[0] == record[1]) { //两次记录相同   ：data-value
+			if(record[0]== record[1]) { //两次记录相同   ：data-value
 					console.log('完全相同');
 					setTimeout(function() {
 					$(tem[0]).remove();
