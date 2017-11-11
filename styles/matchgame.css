@@ -179,4 +179,9 @@ label{
 	align-items: center;
 	justify-content: center;
 }
-
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    transform: scale(2,2);
+}

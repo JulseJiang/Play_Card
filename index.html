@@ -12,7 +12,13 @@
 		<div class="div_center">
 			<div class="div_parent">
 				<div class="div_column1 ">
-					<label>剩余次数：<span id="rest_time">15</span></label>
+					<label>剩余次数：
+						<span id="rest_time">15</span>
+						&nbsp;&nbsp;&nbsp;
+						<span id="seconds" class="seconds">4</span >
+							<span class="seconds">s</span>
+					</label>
+					<audio src="music/bgm.mp3" autoplay loop></audio>
 				</div>
 				<div class="div_column2">
 					<section id="game">
@@ -36,6 +42,8 @@
 						<!--3*4 20次-->
 						<input class="button" type="button" value="高级" onclick="master()">
 						<!--3*4 15次-->
+						<input class="button" type="button" value="声音" onclick="mute()" />
+						<!--<img src="imges/music.png" />-->
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,8 @@ $(function() {
 	$card_board = $('#card');//卡片面板
 	card_mode = $card_board.html();//面板上的第一个卡片作为模型
 	$rest_time=$('#rest_time');//剩余次数span
+	$seconds = $('#seconds');//剩余时间
+	$seconds_all = $('.seconds');
 	current_mode = 20;//当前模式下的次数
 	success_time=0;//成功次数
 //	console.log('$card_mode:'+$card_mode);
@@ -9,6 +11,21 @@ $(function() {
 	
 })
 function refresh(){ 
+	$seconds.text((current_mode/3).toFixed(0));
+	var i = $seconds.text();
+	var sit = setInterval(function(){
+		$front=$('.front');
+		$front.hide();
+		$back = $('.back');
+		$back.removeClass('rotate');
+			$seconds.text(--i);
+			if(i==0){
+				$front.show();
+				$back.addClass('rotate');
+				clearInterval(sit);
+				return;
+			}
+		},1000);
 	$rest_time.text(current_mode);
 	var rest_time = current_mode;
 	$card_board.empty();
