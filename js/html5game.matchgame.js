@@ -1,4 +1,5 @@
 $(function() {
+	$cover = $('.cover');//蒙板
 	$card_board = $('#card');//卡片面板
 	card_mode = $card_board.html();//面板上的第一个卡片作为模型
 	$rest_time=$('#rest_time');//剩余次数span
@@ -28,6 +29,7 @@ function play_music(){
 	$delete_bgm.get(0).muted=false;
 }
 function refresh(){ 
+	$cover.show();
 	$seconds.text((current_mode/3).toFixed(0));
 	var i = $seconds.text();
 	var sit = setInterval(function(){
@@ -40,6 +42,7 @@ function refresh(){
 				$front.show();
 				$back.addClass('rotate');
 				clearInterval(sit);
+				$cover.hide();
 				return;
 			}
 		},1000);
