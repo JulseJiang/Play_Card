@@ -56,6 +56,9 @@ body{
 	height: 400px;*/
 	position: absolute;
 	margin: auto;
+	color: white;
+	text-align: center;
+	text-align: -webkit-center;
 	/*top:30px;*/
 }
 .card{
@@ -182,7 +185,7 @@ label{
 img{
     /*border: 1px solid #ddd;*/
     /*border-radius: 4px;*/
-    padding: 5px;
+    padding: 2px;
     transform: scale(2,2);
     width: 15px;
     height: 15px;

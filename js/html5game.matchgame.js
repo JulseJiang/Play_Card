@@ -68,7 +68,7 @@ function refresh(){
 		console.log("点击face");
 		var $taget0 = $(this).find('div:eq(0)').removeClass('rotate'); //正面
 		var $taget1 = $(this).find('div:eq(1)').addClass('face_hidden rotate'); //背面
-		var val = $taget0.attr('data-value');
+		var val = $(this).attr('data-value');
 		record.push(val);
 		if(record.length == 2) {
 			if(!(temper[0].is(temper[1]))){
@@ -96,6 +96,9 @@ function juge(tem,record){
 					$delete_bgm.get(0).play();
 					$(tem[0]).remove();
 					$(tem[1]).remove();
+					if($card_board.html().length==0){
+						$card_board.text('挑战成功！');
+					}
 				}, 1000);
 				
 			} else { //如果两次记录不同，还原
@@ -178,7 +181,7 @@ function displayCards(num_x, num_y) {
 				'background-position-y': bg_position_y.toString() + 'px'
 			});
 //						$test.addClass(card_index.str);
-			$test.attr({
+			$card_clone.attr({
 				'data-value': card_index.str
 			});
 			//			console.log("test:"+$test.code);
