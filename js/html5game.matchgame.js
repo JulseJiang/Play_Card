@@ -8,8 +8,25 @@ $(function() {
 	success_time=0;//成功次数
 //	console.log('$card_mode:'+$card_mode);
 	primary();
-	
+	$page_bgm= $('#page_bgm');//背景乐
+	$delete_bgm=$('#delete_bgm');//清除时音效
+	$img= $('.music_icon');//音乐播放器图标
+	$img.click(function(){
+		console.log('点击声音');
+//		$img.toggle();
+		$img.toggle();
+		
+	})
 })
+function stop_music(){
+//	$page_bgm.get(0).currentTime=0;
+	$page_bgm.get(0).pause();
+	$delete_bgm.get(0).muted=true;
+}
+function play_music(){
+	$page_bgm.get(0).play();
+	$delete_bgm.get(0).muted=false;
+}
 function refresh(){ 
 	$seconds.text((current_mode/3).toFixed(0));
 	var i = $seconds.text();
@@ -76,6 +93,7 @@ function juge(tem,record){
 			if(record[0]== record[1]) { //两次记录相同   ：data-value
 					console.log('完全相同');
 					setTimeout(function() {
+					$delete_bgm.get(0).play();
 					$(tem[0]).remove();
 					$(tem[1]).remove();
 				}, 1000);

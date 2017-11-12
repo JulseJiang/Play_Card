@@ -18,7 +18,6 @@
 						<span id="seconds" class="seconds">4</span >
 							<span class="seconds">s</span>
 					</label>
-					<audio src="music/bgm.mp3" autoplay loop></audio>
 				</div>
 				<div class="div_column2">
 					<section id="game">
@@ -43,7 +42,13 @@
 						<input class="button" type="button" value="高级" onclick="master()">
 						<!--3*4 15次-->
 						<input class="button" type="button" value="声音" onclick="mute()" />
-						<!--<img src="imges/music.png" />-->
+						<img src="imges/music.png" class="music_icon" onclick="stop_music()" />
+						<img src="imges/music_mute.png" class="music_icon" onclick="play_music()" hidden/>
+						<audio id="page_bgm" controls autoplay loop>
+							<source src="music/bgm.mp3" type="audio/mp3"></source>
+							<source src="music/bgm.ogg" type="audio/ogg"></source>
+						</audio>
+						<audio id="delete_bgm" src="music/delete.wav"></audio>
 					</div>
 				</div>
 			</div>

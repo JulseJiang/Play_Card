@@ -179,9 +179,12 @@ label{
 	align-items: center;
 	justify-content: center;
 }
-img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
+img{
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 4px;*/
     padding: 5px;
     transform: scale(2,2);
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
 }
