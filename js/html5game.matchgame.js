@@ -136,12 +136,12 @@ function createCards(number) {
 		for(var j = 0; j < 2; j++) { //生成成对的json
 //			console.log('插入前的json');
 			json_values.push({ 
-				"value": value,
 				"type": type,
-				"str": "card" + types[type] + values[value]
+				"value": value,
+				"str": "card" + types[type] +"" + values[value]
 			});
-//			console.log("打印json");
-//			console.log(json_values);
+			console.log("打印json");
+			console.log(json_values);
 		}
 		var result = values.splice(value - 1, 1); //删除已经使用过的数字
 //		console.log('vlues'+values);
@@ -162,6 +162,8 @@ function createCards(number) {
 function displayCards(num_x, num_y) {
 	//生成牌
 	var cards = createCards(num_x * num_y);
+	console.log('cards：');
+	console.log(cards);
 	var position_y = 10;
 //	var $card_board = $('#card');
 //	var $card = $('.card');
@@ -174,7 +176,7 @@ function displayCards(num_x, num_y) {
 			//				position_x +=90;
 			//				continue;
 			//			}
-			var card_index = cards[index];
+			card_index = cards[index];
 			bg_position_x = -card_index.value * 80;
 			bg_position_y = -card_index.type * 120;
 			var $card_clone = $(card_mode).clone();
@@ -185,7 +187,8 @@ function displayCards(num_x, num_y) {
 			});
 //						$test.addClass(card_index.str);
 			$card_clone.attr({
-				'data-value': card_index.str
+				'data-value': card_index.str,
+//				'data-value2': 'card'+types[card_index.type]+''+values[card_index.value]
 			});
 			//			console.log("test:"+$test.code);
 //			$card_clone.css({
